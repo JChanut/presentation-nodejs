@@ -124,37 +124,30 @@
                     </section>
                     <section>
                         <h2>Mon premier programme node</h2>
-                        <pre>
-                            <code data-trim class="javascript">
+                        <pre><code data-trim class="javascript">
 var os = require('os');
 
 console.log('Salut tout le monde !');
 console.log('Cette machine a', os.cpus().length, 'processeurs et', 
     os.totalmem() / (1024*1024*1024), 'Go de RAM');
-                            </code>
-                        </pre>
-                        <pre>
-                            <code data-trim class="bash">
+                        </code></pre>
+                        <pre><code data-trim class="bash">
 $ node hello.js
 Salut tout le monde !
 Cette machine a 4 processeurs et 7.892486572265625 Go de RAM
-                            </code>
-                        </pre>
+                        </code></pre>
                     </section>
                     <section>
                         <h2>npm</h2>
                         <p>Le référentiel de modules</p>
                         <p>Omniprésent pour les outils : Grunt, Gulp, Brunch, Angular, PhantomJS, Cordova/Phonegap, Ionic, Mocha...</p>
-                        <pre>
-                            <code data-trim class="bash">
+                        <pre><code data-trim class="bash">
 $ npm install --save moment
-                            </code>
-                        </pre>
+                        </code></pre>
                     </section>
                     <section>
                         <h2>1er module tiers</h2>
-                        <pre>
-                            <code data-trim data-noescape class="javascript">
+                        <pre><code data-trim data-noescape class="javascript">
 var os = require('os');
 <u>var moment = require('moment');
 moment.locale('fr');</u>
@@ -164,16 +157,41 @@ console.log('Salut tout le monde !');
 <u>console.log('Nous sommes le', now.format('dddd D MMMM YYYY à HH[h]mm'));</u>
 console.log('Cette machine a', os.cpus().length, 'processeurs et', 
     os.totalmem() / (1024*1024*1024), 'Go de RAM');
-                            </code>
-                        </pre>
-                                                <pre>
-                            <code data-trim class="bash">
+                        </code></pre>
+                        <pre><code data-trim class="bash">
 $ node hello-moment.js
 Salut tout le monde !
 Nous sommes le mardi 15 décembre 2015 à 14h27
 Cette machine a 4 processeurs et 7.892486572265625 Go de RAM
-                            </code>
-                        </pre>
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Un simple serveur web</h1>
+                    </section>
+                    <section>
+                        <h2>Utilisation du module natif <code>http</code></h2>
+                        <pre><code data-trim class="javascript">
+var http = require('http');
+
+// Create a HTTP server
+// - request comes from the client
+// - response goes to the client
+http.createServer(function(request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+
+  response.end('Hello World !');
+
+}).listen(1337, '127.0.0.1');
+
+console.log('Server running at http://127.0.0.1:1337/');
+                        </code></pre>
+                        <pre><code data-trim class="javascript">
+$ node hello-server.js
+Server running at http://127.0.0.1:1337/
+                        </code></pre>
+                        <p>Se rendre à <a target="_blank" href="http://localhost:1337/">http://localhost:1337/</a></p>
                     </section>
                 </section>
                 <section>
@@ -184,11 +202,27 @@ Cette machine a 4 processeurs et 7.892486572265625 Go de RAM
                         <h2>Express</h2>
                         <h4>Le principal framework web de base</h4>
                         <p>Il s'agit d'une surcouche du module <code>connect</code> qui gère les piles de <i>middlewares</i>,
-                        lui même construit par dessus le module natif <code>http</code> de node</p>
+                        lui même construit par dessus le module natif <code>http</code> de node.</p>
                         <p>Système d'applications modulaires, routage par méthode et chemin, système de vues et moteurs de templates</p>
                     </section>
                 </section>
-
+                
+                <section>
+                    <h2>Pour aller plus loin</h2>
+                    
+                        <p>The business case for Node, par Joe McCann, de The Node Source : <a target="_blank" href="http://fr.slideshare.net/joemccann/the-business-case-for-node">slides</a> 
+                            et <a href="https://www.youtube.com/watch?v=bqLXjNbMZpY" target="_blank">vidéo</a> (mars 2014)</p>
+                        <p><a href="https://nodejs.org/api/" target="_blank">Docs API Node</a></p>
+                        <p><a href="https://docs.npmjs.com/" target="_blank">Docs npm</a></p>
+                        <p><a href="http://nodeschool.io/fr-fr/" target="_blank">NodeSchool</a></p>
+                        <p><a href="https://github.com/sindresorhus/awesome-nodejs" target="_blank">Awesome Node.js</a></p>
+                    
+                </section>
+                
+                <section>
+                    <h1>Merci !</h1>
+                    <h2>Questions ?</h2>
+                </section>
 			</div>
 
 		</div>

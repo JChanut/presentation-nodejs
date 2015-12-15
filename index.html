@@ -117,6 +117,78 @@
                         <aside class="notes">Node n'invente rien mais ré-utilise les concepts qui fonctionnent et sont éprouvés depuis des années</aside>
                     </section>
                 </section>
+                <section>
+                    <section>
+                        <h1>Hello Node</h1>
+                        <h3>Démo</h3>
+                    </section>
+                    <section>
+                        <h2>Mon premier programme node</h2>
+                        <pre>
+                            <code data-trim class="javascript">
+var os = require('os');
+
+console.log('Salut tout le monde !');
+console.log('Cette machine a', os.cpus().length, 'processeurs et', 
+    os.totalmem() / (1024*1024*1024), 'Go de RAM');
+                            </code>
+                        </pre>
+                        <pre>
+                            <code data-trim class="bash">
+$ node hello.js
+Salut tout le monde !
+Cette machine a 4 processeurs et 7.892486572265625 Go de RAM
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h2>npm</h2>
+                        <p>Le référentiel de modules</p>
+                        <p>Omniprésent pour les outils : Grunt, Gulp, Brunch, Angular, PhantomJS, Cordova/Phonegap, Ionic, Mocha...</p>
+                        <pre>
+                            <code data-trim class="bash">
+$ npm install --save moment
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h2>1er module tiers</h2>
+                        <pre>
+                            <code data-trim data-noescape class="javascript">
+var os = require('os');
+<u>var moment = require('moment');
+moment.locale('fr');</u>
+
+<u>var now = moment();</u>
+console.log('Salut tout le monde !');
+<u>console.log('Nous sommes le', now.format('dddd D MMMM YYYY à HH[h]mm'));</u>
+console.log('Cette machine a', os.cpus().length, 'processeurs et', 
+    os.totalmem() / (1024*1024*1024), 'Go de RAM');
+                            </code>
+                        </pre>
+                                                <pre>
+                            <code data-trim class="bash">
+$ node hello-moment.js
+Salut tout le monde !
+Nous sommes le mardi 15 décembre 2015 à 14h27
+Cette machine a 4 processeurs et 7.892486572265625 Go de RAM
+                            </code>
+                        </pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Application web</h1>
+                    </section>
+                    <section>
+                        <h2>Express</h2>
+                        <h4>Le principal framework web de base</h4>
+                        <p>Il s'agit d'une surcouche du module <code>connect</code> qui gère les piles de <i>middlewares</i>,
+                        lui même construit par dessus le module natif <code>http</code> de node</p>
+                        <p>Système d'applications modulaires, routage par méthode et chemin, système de vues et moteurs de templates</p>
+                    </section>
+                </section>
+
 			</div>
 
 		</div>

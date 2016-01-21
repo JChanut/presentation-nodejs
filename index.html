@@ -47,7 +47,15 @@
 						<small>Une présentation de <a href="mailto:jerry.chanut@soprasteria.com">Jerry Chanut</a> / <a target="_blank" href="http://twitter.com/JerryChanut">@JerryChanut</a></small>
 					</p>
 				</section>
-
+                <section>
+                    <h2>Node ?</h2>
+                    <p class="fragment">Node.js n'est pas un langage de programmation</p>
+                    <p class="fragment">Node.js n'est pas non plus un framework JavaScript</p>
+                    <p class="fragment" >Node.js est une plate-forme de programmation JavaScript</p>
+                    <aside class="notes">La différence entre ces trois désignations peut sembler subtile voire inutile mais le terme plate-forme est
+                        la véritable nature de Node.js
+                    </aside>
+                </section>
 				<section>
 					<h2>Pourquoi node ?</h2>
 					<p class="fragment">
@@ -66,7 +74,7 @@
                         <strong>Capitalisation</strong> des compétences
                     </p>
 				</section>
-                
+
                 <section>
                     <h2>Historique de node</h2>
                     <ul>
@@ -76,6 +84,10 @@
                         <li class="fragment">2013 : <a href="https://strongloop.com/node-js/nodejs-infographic/" target="_blank">Gros usage en production</a> (eBay, Paypal LinkedIn, Walmart, Uber, Groupon, Trello...)</li>
                         <li class="fragment">Aujourd'hui : 210K+ modules dans npm</li>
                     </ul>
+                    <aside class="notes">Initié par Ryan Dahl étudiant américain qui souhaitait créer un serveur web non bloquant,
+                        c'est à dire un serveur capable dans un même processus de traiter d'autres requêtes en attendant de renvoyer
+                        la réponse initiale
+                    </aside>
                 </section>
                 <section>
                     <h2>écosystème</h2>
@@ -127,7 +139,7 @@
 var os = require('os');
 
 console.log('Salut tout le monde !');
-console.log('Cette machine a', os.cpus().length, 'processeurs et', 
+console.log('Cette machine a', os.cpus().length, 'processeurs et',
     os.totalmem() / (1024*1024*1024), 'Go de RAM');
                         </code></pre>
                         <pre><code data-trim class="bash">
@@ -154,7 +166,7 @@ moment.locale('fr');</u>
 <u>var now = moment();</u>
 console.log('Salut tout le monde !');
 <u>console.log('Nous sommes le', now.format('dddd D MMMM YYYY à HH[h]mm'));</u>
-console.log('Cette machine a', os.cpus().length, 'processeurs et', 
+console.log('Cette machine a', os.cpus().length, 'processeurs et',
     os.totalmem() / (1024*1024*1024), 'Go de RAM');
                         </code></pre>
                         <pre><code data-trim class="bash">
@@ -168,6 +180,9 @@ Cette machine a 4 processeurs et 7.892486572265625 Go de RAM
                 <section>
                     <section>
                         <h1>Un simple serveur web</h1>
+                        <aside class="notes">Simplicité de fonctionnement : revecoir une requête http et décider
+                            soi-même de la réponse à apporter.s
+                        </aside>
                     </section>
                     <section>
                         <h2>Utilisation du module natif <code>http</code></h2>
@@ -186,7 +201,7 @@ http.createServer(function(request, response) {
 
 console.log('Server running at http://127.0.0.1:1337/');
                         </code></pre>
-                        <pre><code data-trim class="javascript">
+                        <pre><code data-trim class="bash">
 $ node hello-server.js
 Server running at http://127.0.0.1:1337/
                         </code></pre>
@@ -204,19 +219,42 @@ Server running at http://127.0.0.1:1337/
                         lui même construit par dessus le module natif <code>http</code> de node.</p>
                         <p>Système d'applications modulaires, routage par méthode et chemin, système de vues et moteurs de templates</p>
                     </section>
+                    <section>
+                        <h2>Utilisation du module <code>express</code></h2>
+                        <pre><code data-trim class="bash">
+$ npm install --save express
+                        </code></pre>
+                        <pre><code data-trim class="javascript">
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World from Express!');
+});
+
+app.listen(3000, function () {
+  console.log('Hello World app listening on port 3000!');
+});
+                        </code></pre>
+                        <pre><code data-trim class="bash">
+$ node hello-express.js
+Hello World app listening on port 3000!
+                        </code></pre>
+                        <p>Se rendre à <a target="_blank" href="http://localhost:3000/">http://localhost:3000/</a></p>
+                    </section>
                 </section>
-                
+
                 <section>
                     <h2>Pour aller plus loin</h2>
-                    
-                        <p>The business case for Node, par Joe McCann, de The Node Source : <a target="_blank" href="http://fr.slideshare.net/joemccann/the-business-case-for-node">slides</a> 
+
+                        <p>The business case for Node, par Joe McCann, de The Node Source : <a target="_blank" href="http://fr.slideshare.net/joemccann/the-business-case-for-node">slides</a>
                             et <a href="https://www.youtube.com/watch?v=bqLXjNbMZpY" target="_blank">vidéo</a> (mars 2014)</p>
                         <p><a href="https://nodejs.org/api/" target="_blank">Docs API Node</a></p>
                         <p><a href="https://docs.npmjs.com/" target="_blank">Docs npm</a></p>
                         <p><a href="http://nodeschool.io/fr-fr/" target="_blank">NodeSchool</a></p>
                         <p><a href="https://github.com/sindresorhus/awesome-nodejs" target="_blank">Awesome Node.js</a></p>
                 </section>
-                
+
                 <section>
                     <h1>Merci !</h1>
                     <h2>Questions ?</h2>
